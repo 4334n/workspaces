@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>RC Car Wiring Diagram Board</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f5f5f5;
+      margin: 20px;
+    }
+    .diagram-container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 30px;
+    }
+    .block {
+      padding: 12px 20px;
+      background: #fff;
+      border: 2px solid #000;
+      border-radius: 12px;
+      box-shadow: 2px 2px 8px rgba(0,0,0,0.1);
+    }
+    .arrow {
+      width: 2px;
+      height: 40px;
+      background-color: #000;
+    }
+  </style>
+</head>
+<body>
+  <h1>RC Car Basic Connection Layout</h1>
+  <div class="diagram-container">
+    <div class="block">Battery / Power Bank</div>
+    <div class="arrow"></div>
+    <div class="block">Voltage Regulator / Power Split</div>
+    <div class="arrow"></div>
+    <div class="block">Raspberry Pi (main control)</div>
+    <div class="arrow"></div>
+    <div class="block">Motor Driver (e.g., L298N)</div>
+    <div class="arrow"></div>
+    <div class="block">DC Motors (connected to wheels)</div>
+    <div class="arrow"></div>
+    <div class="block">Toy Frame / RC Car Base</div>
+  </div>
+
+  <div class="diagram-container" style="margin-top: 60px;">
+    <div class="block">Proximity Sensor / Motion Sensor</div>
+    <div class="arrow"></div>
+    <div class="block">Raspberry Pi (GPIO Input)</div>
+  </div>
+
+  <div class="diagram-container" style="margin-top: 60px;">
+    <div class="block">Phone or Computer</div>
+    <div class="arrow"></div>
+    <div class="block">Wireless Communication (e.g., Wi-Fi / Bluetooth)</div>
+    <div class="arrow"></div>
+    <div class="block">Raspberry Pi (Remote Command Receiver)</div>
+  </div>
+</body>
+</html>
