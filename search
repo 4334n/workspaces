@@ -1,0 +1,19 @@
+import os
+
+def scan_connected_devices():
+    print("Scanning for connected devices...\n")
+    
+    # USB devices
+    print("USB Devices:")
+    os.system("lsusb")
+    
+    # PCI devices (if applicable)
+    print("\nPCI Devices:")
+    os.system("lspci")
+    
+    # GPIO pins (check if any are set up)
+    print("\nGPIO Pins Setup:")
+    os.system("gpio readall")
+    
+scan_connected_devices()
+
