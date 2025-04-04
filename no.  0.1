@@ -1,0 +1,52 @@
+import speech_recognition as sr
+import pyttsx3
+import time
+
+# Initialize voice engine
+engine = pyttsx3.init()
+engine.setProperty('rate', 160)
+
+# Speech recognizer
+recognizer = sr.Recognizer()
+mic = sr.Microphone()
+
+def speak(text):
+    print(f"Bot: {text}")
+    engine.say(text)
+    engine.runAndWait()
+
+def listen():
+    with mic as source:
+        recognizer.adjust_for_ambient_noise(source)
+        print("Listening...")
+        audio = recognizer.listen(source)
+
+    try:
+        command = recognizer.recognize_google(audio)
+        print(f"You said: {command}")
+        return command.lower()
+    except sr.UnknownValueError:
+        speak("Sorry, I didn’t catch that.")
+        return None
+    except sr.RequestError:
+        speak("Network error.")
+        return None
+
+def process_command(cmd):
+    if "hello" in cmd:
+        speak("Hey Athan! I'm online and ready.")
+    elif "stop" in cmd:
+        speak("Stopping now.")
+        return False
+    else:
+        speak("I'm not sure how to respond to that yet.")
+    return True
+
+# Main loop
+speak("Booting up...")
+running = True
+while running:
+    command = listen()
+    if command:
+        running = process_command(command)
+    time.sleep(1)
