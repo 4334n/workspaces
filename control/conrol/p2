@@ -1,0 +1,12 @@
+import serial
+import time
+
+def toggle_led():
+    ser = serial.Serial('/dev/ttyUSB0', 9600)
+    time.sleep(2)
+    ser.write(b'1')
+    print('LED ON')
+    time.sleep(5)
+    ser.write(b'0')
+    print('LED OFF')
+    ser.close()
